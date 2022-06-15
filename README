@@ -10,9 +10,9 @@
 
 2 - En el repositorio existe el archivo cafeteriadb.sql, el cual es el script necesario para levantar nuestra base de datos.
 
-3 - Para configurar la conexión con nuestro gestor de base de datos debemos editar el archivo en el directorio app/classes/conexion.php. En mi prueba utilice los siguientes parametros.
+3 - Para configurar la conexión con nuestro gestor de base de datos debemos editar el archivo en el directorio app/classes/conexion.php. En mi prueba utilicé los siguientes parámetros.
 
-* Parametros para conexión a BD
+* Parámetros para conexión a BD
 
 
     $manejador = 'mysql';
