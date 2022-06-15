@@ -1,0 +1,43 @@
+# PRUEBA TÉCNICA PARA PROGRAMADOR PHP
+
+- Se trabajó con el servidor web xampp. 
+- Se trabajó con la plantilla open source Admin LTE.
+- Se codificó el proyecto en php nativo. 
+
+# PASOS PARA MUESTRA EN MARCHA
+
+1 - Para iniciar la puesta en marcha del proyecto, debemos clonar nuestro repositorio en la carpeta htdocs (en mi caso por usar xampp)
+
+2 - En el repositorio existe el archivo cafeteriadb.sql, el cual es el script necesario para levantar nuestra base de datos.
+
+3 - Para configurar la conexión con nuestro gestor de base de datos debemos editar el archivo en el directorio app/classes/conexion.php. En mi prueba utilice los siguientes parametros.
+
+* Parametros para conexión a BD
+
+
+    $manejador = 'mysql';
+
+    $servidor = 'localhost';
+
+    $base = 'cafeteriadb';
+
+    $usuario = 'root';
+
+    $pass = '';
+
+4 - Una vez realizado todo esto con éxito, podemos acceder al sistema desde nuestro localhost http://localhost/prueba-php/
+
+# CONSULTAS DIRECTAS A BASE DE DATOS
+
+* Consulta para conocer cuál es el producto que más stock tiene.
+
+    SELECT * FROM producto ORDER BY stock DESC LIMIT 1;
+
+* Consulta para conocer cuál es el producto más vendido.
+
+    SELECT producto.*, SUM(cantidad) as cantidad_total_vendida 
+    FROM venta
+    INNER JOIN producto ON producto.id = venta.producto_id
+    GROUP BY venta.producto_id 
+    ORDER BY cantidad_total_vendida DESC 
+    LIMIT 1;
